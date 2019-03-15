@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&subset=cyrillic");
+
+@font-face {
+  font-family: "HelveticaNeue-Condensed";
+  src: url("../fonts/HelveticaNeue-Condensed/HelveticaNeue-CondensedRegular.eot");
+  src: url("../fonts/HelveticaNeue-Condensed/HelveticaNeue-CondensedRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeue-Condensed/HelveticaNeue-CondensedRegular.woff") format("woff"), url("../fonts/HelveticaNeue-Condensed/HelveticaNeue-CondensedRegular.woff2") format("woff2"), url("../fonts/HelveticaNeue-Condensed/HelveticaNeue-CondensedRegular.ttf") format("truetype"), url("../fonts/HelveticaNeue-Condensed/HelveticaNeue-CondensedRegular.svg#HelveticaNeue-Condensed") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeue-Condensed";
+  src: url("../fonts/HelveticaNeue-CondensedBold/HelveticaNeue-CondensedBold.eot");
+  src: url("../fonts/HelveticaNeue-CondensedBold/HelveticaNeue-CondensedBold.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeue-CondensedBold/HelveticaNeue-CondensedBold.woff") format("woff"), url("../fonts/HelveticaNeue-CondensedBold/HelveticaNeue-CondensedBold.woff2") format("woff2"), url("../fonts/HelveticaNeue-CondensedBold/HelveticaNeue-CondensedBold.ttf") format("truetype"), url("../fonts/HelveticaNeue-CondensedBold/HelveticaNeue-CondensedBold.svg#HelveticaNeue-Condensed") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HelveticaNeue-Condensed";
+  src: url("../fonts/HelveticaNeue-CondensedBlack/HelveticaNeue-CondensedBlack.eot");
+  src: url("../fonts/HelveticaNeue-CondensedBlack/HelveticaNeue-CondensedBlack.eot?#iefix") format("embedded-opentype"), url("../fonts/HelveticaNeue-CondensedBlack/HelveticaNeue-CondensedBlack.woff") format("woff"), url("../fonts/HelveticaNeue-CondensedBlack/HelveticaNeue-CondensedBlack.woff2") format("woff2"), url("../fonts/HelveticaNeue-CondensedBlack/HelveticaNeue-CondensedBlack.ttf") format("truetype"), url("../fonts/HelveticaNeue-CondensedBlack/HelveticaNeue-CondensedBlack.svg#HelveticaNeue-Condensed") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  min-width: 320px;
+  position: relative;
+  line-height: 1.4;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+body input,
+body textarea {
+  border: #666 1px solid;
+  outline: none;
+  border-radius: 0;
+}
+
+a {
+  color: #004277;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #004277;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+button {
+  outline: none !important;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  background: #aff0ff;
+}
+
+.content {
+  background: #afffc4;
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.a-center {
+  align-items: center;
+}
+
+.j-between {
+  justify-content: space-between;
+}
+
+.scroll-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: red;
+  transition: width all;
+}
+
+.top {
+  transition: 0.3s all;
+  cursor: pointer;
+  position: fixed;
+  background: #004277;
+  border-radius: 50%;
+}
+
+.top:hover {
+  transform: translateY(-10%);
+}
+
+.footer {
+  padding: 20px 0;
+  border-top: 1px solid #000;
+  text-align: center;
+  background: #afc0ff;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.header {
+  background: #ffffff;
+  padding: 20px 0;
+  border-bottom: 1px solid #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s transform;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.header.hover {
+  transform: translateY(0);
+}
+
+.main-nav {
+  display: flex;
+}
+
+.main-nav a {
+  margin-right: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #000;
+  transition: 0.3s all;
+}
+
+.main-nav a:last-child {
+  margin-right: 0;
+}
+
+@media (min-width: 1201px) {
+  body {
+    font-size: 1.09815vw;
+  }
+
+  .container {
+    padding: 0 4.11805vw;
+  }
+
+  .top {
+    bottom: 3.43171vw;
+    right: -3.43171vw;
+    width: 3.43171vw;
+    height: 3.43171vw;
+  }
+
+  .top.show {
+    right: 3.43171vw;
+  }
+}
+
+@media (max-width: 1200) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 60px;
+  }
+
+  .top {
+    bottom: 30px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .top.show {
+    right: 40px;
+  }
+}
+
+@media (max-width: 1000) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 800) {
+  .container {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 600) {
+  .container {
+    padding: 0 10px;
+  }
+}
