@@ -18,18 +18,22 @@ const paths = {
     html: {
         pages: './project/src/assets/html/*.html',
         src: './project/src/assets/html/**/*',
-        dest: './project/dist'
+        dest: './project/dist/'
     },
     styles: {
         main: './project/src/assets/styles/main.sass',
         src: './project/src/assets/styles/**/*',
-        dest: './project/dist/assets/styles'
+        dest: './project/dist/assets/styles/'
     },
     scripts: {
         src: './project/src/assets/scripts/*.js',
-        dest: './project/dist/assets/scripts'
+        dest: './project/dist/assets/scripts/'
+    },
+    resources: {
+        src: './project/src/resources/**/*',
+        dest: './project/dist/assets/'
     }
-}
+};
 
 function server() {
     browserSync.init({
@@ -41,7 +45,7 @@ function server() {
         // tunnel: true,
         // tunnel: "./projectmane", //Demonstration page: http://./projectmane.localtunnel.me
     })
-};
+}
 
 function watch() {
     gulp.watch(paths.html.src, html);
@@ -49,7 +53,11 @@ function watch() {
     gulp.watch(paths.scripts.src, scripts);
 }
 
-//html
+function resources() {
+    return gulp.src(paths.resources.src)
+        .pipe(gulp.dest(paths.resources.dest));
+}
+
 function html() {
     return gulp.src(paths.html.pages)
         .pipe(rigger())
@@ -58,7 +66,6 @@ function html() {
         .pipe(browserSync.reload({ stream: true }))
 }
 
-//sass
 function styles() {
     return gulp.src(paths.styles.main)
         .pipe(sassGlob())
@@ -81,6 +88,7 @@ function clean() {
     return del(paths.root)
 }
 
+exports.resources = resources;
 exports.html = html;
 exports.styles = styles;
 exports.scripts = scripts;
@@ -89,7 +97,7 @@ exports.clean = clean;
 gulp.task('default',
     gulp.series(
         clean,
-        gulp.parallel(html, styles, scripts),
+        gulp.parallel(html, resources, styles, scripts),
         gulp.parallel(watch, server)
     )
 );
