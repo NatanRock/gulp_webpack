@@ -1,6 +1,4 @@
-<h1>gulp + wabpack start project</h1>
-
-<p>_____________________</p>
+<h1>Start project: gulp_&_wabpack</h1>
 
 <h2>Отличия --save от --save-dev</h2>
 <p>По умолчанию NPM просто устанавливает пакет под node_modules. Когда вы пытаетесь установить зависимости для своего приложения/модуля, вам нужно будет сначала установить их, а затем добавить их в раздел <code>dependencies</code> вашего <code>package.json</code>.</p>

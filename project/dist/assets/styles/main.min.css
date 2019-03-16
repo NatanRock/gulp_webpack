@@ -78,6 +78,9 @@ svg {
 
 .content {
   background: #afffc4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .d-flex {
@@ -126,15 +129,10 @@ svg {
 }
 
 .header {
-  background: #ffffff;
   padding: 20px 0;
+  background: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid #000;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s transform;
 }
 
 .header.hidden {
