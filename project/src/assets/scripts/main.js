@@ -2,6 +2,11 @@
 // import module from './modules/module.js';
 import log from './modules/log.js';
 
+const header = document.querySelector('.header');
+const footer = document.querySelector('.footer');
+const mainWrapper = document.querySelector('.main-wrapper');
+const mainContent = document.querySelector('.main-content');
+
 // //on clicl function
 // document.querySelector('selector').addEventListener('click', function(){
 //     // do function
@@ -16,6 +21,9 @@ import log from './modules/log.js';
 // toggle class
 // document.querySelector('selector').classList.toggle('foo')
 
+// css styles in js
+// document.querySelector('.selector').style.paddingTop = '200px'
+
 document.addEventListener('DOMContentLoaded', function () {
     log('document ready');
     // enter code here
@@ -25,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
 window.onload = function () {
     log('window loaded');
     // enter code here
+
+    mainContent.style.cssText =
+        'padding-top: ' + header.offsetHeight +'px;' +
+        'min-height: calc(100vh - ' + (header.offsetHeight + footer.offsetHeight) + 'px);';
 
 };
 

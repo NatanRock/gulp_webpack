@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
     "browser-sync": "^2.26.3",
     "del": "^4.0.0",
     "gulp": "^4.0.0",
@@ -21,8 +24,11 @@
     "gulp-sass": "^4.0.2",
     "gulp-sass-glob": "^1.0.9",
     "gulp-webpack": "^1.5.0",
-    "uglifyjs-webpack-plugin": "^2.1.2",
+    "node-sass-tilde-importer": "^1.0.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }

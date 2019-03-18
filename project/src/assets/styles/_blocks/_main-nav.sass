@@ -1,10 +1,17 @@
 .main-nav
+
+.main-nav__list
+    list-style-type: none
+    padding: 0
+    margin: 0
     display: flex
-    a
-        margin-right: 20px
-        text-transform: uppercase
-        font-weight: bold
-        color: #000
-        +tr
-        &:last-child
-            margin-right: 0
+
+.main-nav__item
+    +adaptive(float)
+        margin-right: get-vw(40px)
+    +adaptive(1600)
+        margin-right: 30px
+    &:last-child
+        margin-right: 0
+
+.main-nav__link

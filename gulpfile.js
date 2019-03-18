@@ -11,7 +11,8 @@ const gulpWebpack = require('gulp-webpack');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const browserSync = require('browser-sync').create();
-// const
+const tildeImporter = require('node-sass-tilde-importer');
+
 
 const paths = {
     root: './project/dist',
@@ -51,6 +52,7 @@ function watch() {
     gulp.watch(paths.html.src, html);
     gulp.watch(paths.styles.src, styles);
     gulp.watch(paths.scripts.src, scripts);
+    gulp.watch(paths.resources.src, resources);
 }
 
 function resources() {
@@ -69,7 +71,10 @@ function html() {
 function styles() {
     return gulp.src(paths.styles.main)
         .pipe(sassGlob())
-        .pipe(sass({ outputStyle: 'expand' }).on('error', notify.onError()))
+        .pipe(sass({
+            importer: tildeImporter,
+            outputStyle: 'expand'
+        }).on('error', notify.onError()))
         .pipe(rename({ suffix: '.min', prefix: '' }))
         .pipe(gcmq())
         // .pipe(cleanCSS( {level: { 1: { specialComments: 0 } } })) // Opt., comment out when debugging
