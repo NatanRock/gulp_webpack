@@ -28,17 +28,34 @@ document.addEventListener('DOMContentLoaded', function () {
     log('document ready');
     // enter code here
 
+
+
 });
 
 window.onload = function () {
     log('window loaded');
     // enter code here
 
+
+
+    loadAndResize();
+};
+
+window.addEventListener('resize', function () {
+    log('window resize');
+
+
+
+    loadAndResize();
+});
+
+function loadAndResize() {
+
     mainContent.style.cssText =
         'padding-top: ' + header.offsetHeight +'px;' +
         'min-height: calc(100vh - ' + (header.offsetHeight + footer.offsetHeight) + 'px);';
 
-};
+}
 
 // // check when user out page
 // window.onbeforeunload = function () {

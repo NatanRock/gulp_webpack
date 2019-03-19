@@ -7,7 +7,7 @@
         font-style: $style
 
 
-$layout-width: 1457
+$layout-width: 1920
 
 @function get-vw($px)
     $vw-context: ($layout-width*.01) * 1px
@@ -24,15 +24,15 @@ $layout-width: 1457
     @return unquote(('calc('+$percent * 1%+ ' + ' + ($px/$vw-context) * 1vw +')'))
 
 
-$w-min: 1201px
-$w-max: 1600px
+$w-min: 1601px
+$w-max: 2560px
 @mixin adaptive($media)
     @if $media == float
         // @media (min-width: $w-min) and (max-width: $w-max)
         @media (min-width: $w-min)
             @content
     @else
-        @media (max-width: $media)
+        @media (max-width: $media * 1px)
             @content
 
 
