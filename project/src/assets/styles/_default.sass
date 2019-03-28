@@ -1,17 +1,10 @@
 body
-    min-width: 320px
-    position: relative
-    line-height: 1.4
     color: $text-cl
-    overflow-x: hidden
+    font-family: $main-font
     +adaptive(float)
         font-size: get-vw(16px)
-    +adaptive(1200)
-        font-size: 14px
-    input, textarea
-        border: #666 1px solid
-        outline: none
-        border-radius: 0
+    +adaptive(1600)
+        font-size: 16px
 
 a
     color: $main-cl
@@ -20,27 +13,7 @@ a
         color: $main-cl
         text-decoration: none
 
-h1, h2, h3, h4, h5, h6
-    margin-top: 0
-    margin-bottom: 0.5rem
-
-button
-    outline: none !important
-    background: none
-    border: none
-    padding: 0
-    cursor: pointer
-
-svg
-    width: 100%
-    height: 100%
-
-
-.main-wrapper
-    background: #aff0ff
-
 .main-content
-    background: #afffc4
     display: flex
     flex-direction: column
     justify-content: flex-start
@@ -48,7 +21,7 @@ svg
 .container
     +adaptive(float)
         padding: 0 get-vw(60px)
-    +adaptive(1200)
+    +adaptive(1600)
         padding: 0 60px
     +adaptive(1000)
         padding: 0 40px
@@ -57,23 +30,12 @@ svg
     +adaptive(600)
         padding: 0 10px
 
-.d-flex
-    display: flex
-    flex-wrap: wrap
-
-.a-center
-    align-items: center
-
-.j-between
-    justify-content: space-between
-
 .scroll-line
     position: fixed
     top: 0
     left: 0
     height: 2px
-    background: red
-    +tr(width)
+    background: $main-cl
 
 .top
     +tr()
@@ -82,19 +44,19 @@ svg
     background: $main-cl
     border-radius: 50%
     +adaptive(float)
-        bottom: get-vw(50px)
         right: get-vw(-50px)
+        bottom: get-vw(50px)
         width: get-vw(50px)
         height: get-vw(50px)
-    +adaptive(1200)
-        bottom: 30px
-        right: -40px
-        width: 40px
-        height: 40px
+    +adaptive(1600)
+        right: -50px
+        bottom: 50px
+        width: 50px
+        height: 50px
     &:hover
         transform: translateY(-10%)
     &.show
         +adaptive(float)
             right: get-vw(50px)
-        +adaptive(1200)
-            right: 40px
+        +adaptive(1600)
+            right: 50px

@@ -6,9 +6,7 @@
         font-weight: $weight
         font-style: $style
 
-
 $layout-width: 1920
-
 @function get-vw($px)
     $vw-context: ($layout-width*.01) * 1px
     @return ($px/$vw-context) * 1vw
@@ -23,7 +21,6 @@ $layout-width: 1920
     $vw-context: ($layout-width*.01) * 1px
     @return unquote(('calc('+$percent * 1%+ ' + ' + ($px/$vw-context) * 1vw +')'))
 
-
 $w-min: 1601px
 $w-max: 2560px
 @mixin adaptive($media)
@@ -35,7 +32,6 @@ $w-max: 2560px
         @media (max-width: $media * 1px)
             @content
 
-
 @mixin placeholder
     &::-webkit-input-placeholder
         @content
@@ -45,7 +41,6 @@ $w-max: 2560px
         @content
     &:-ms-input-placeholder
         @content
-
 
 @mixin hover-link($bg-color, $height, $speed)
     &:before
