@@ -28,8 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
     log('document ready');
     // enter code here
 
-
-
 });
 
 window.onload = function () {
@@ -49,12 +47,11 @@ window.addEventListener('resize', function () {
     loadAndResize();
 });
 
-function loadAndResize() {
+let loadAndResize = () => {
 
     mainContent.style.cssText =
-        'padding-top: ' + header.offsetHeight +'px;' +
-        'min-height: calc(100vh - ' + (header.offsetHeight + footer.offsetHeight) + 'px);';
-
+        `padding-top: ${header.offsetHeight}px;
+        min-height: calc(100vh - ${footer.offsetHeight}px);`;
 }
 
 
@@ -67,14 +64,14 @@ window.addEventListener('scroll', function () {
     // scroll direction
     let st = this.scrollY;
     if (st > lastScrollTop) {
-        // log('scroll down');
+        log('scroll down');
         // enter code here
 
     } else if (st == lastScrollTop) {
         //do nothing
         //In IE this is an important condition because there seems to be some instances where the last scrollTop is equal to the new one
     } else {
-        // log('scroll up');
+        log('scroll up');
         // enter code here
 
     }

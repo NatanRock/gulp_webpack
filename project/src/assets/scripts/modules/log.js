@@ -1,4 +1,4 @@
-function log(text) {
+let log = (text) => {
     console.log('console log: ', text);
 };
 
