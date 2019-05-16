@@ -1,0 +1,23 @@
+.top
+    +tr()
+    cursor: pointer
+    position: fixed
+    background: $main-cl
+    border-radius: 50%
+    +adaptive(float)
+        right: get-vw(-50px)
+        bottom: get-vw(50px)
+        width: get-vw(50px)
+        height: get-vw(50px)
+    +adaptive(1600)
+        right: -50px
+        bottom: 50px
+        width: 50px
+        height: 50px
+    &:hover
+        transform: translateY(-10%)
+    &.show
+        +adaptive(float)
+            right: get-vw(50px)
+        +adaptive(1600)
+            right: 50px

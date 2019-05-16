@@ -77,7 +77,7 @@ function styles() {
         }).on('error', notify.onError()))
         .pipe(rename({ suffix: '.min', prefix: '' }))
         .pipe(gcmq())
-        // .pipe(cleanCSS( {level: { 1: { specialComments: 0 } } })) // Opt., comment out when debugging
+        .pipe(cleanCSS( {level: { 1: { specialComments: 0 } } })) // Opt., comment out when debugging
         .pipe(gulp.dest(paths.styles.dest))
         .pipe(browserSync.reload({ stream: true }))
 }
