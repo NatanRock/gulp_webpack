@@ -1,18 +1,38 @@
 .header
-    padding: 20px 0
     background: rgba(#ffffff, 0.8)
-    border-bottom: 1px solid #000
     box-shadow: 0 0 25px 0 rgba(#000000, 0.2)
     position: fixed
     top: 0
     left: 0
     right: 0
-    &.hidden
-        transform: translateY(-100%)
-    &.hover
-        transform: translateY(0)
+    z-index: 99
+    padding: 20px 0
 
-.header__content
+.header-content
     display: flex
     justify-content: space-between
     align-items: center
+
+.logo
+    display: flex
+
+.main-nav
+    list-style-type: none
+    padding: 0
+    margin: 0
+    display: flex
+    li
+        +adaptive(float)
+            margin-right: get-vw(40px)
+        +adaptive(1600)
+            margin-right: 30px
+        &:last-child
+            margin-right: 0
+        &.active
+            a
+                border-bottom-color: $main-cl
+    a
+        text-decoration: none
+        border-bottom: 1px solid transparent
+        &:hover
+            border-bottom-color: $main-cl
