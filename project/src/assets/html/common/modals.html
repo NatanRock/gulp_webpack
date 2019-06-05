@@ -1,0 +1,33 @@
+<div class="modal modal-form">
+    <div class="modal-inner">
+        <button class="modal-close"></button>
+
+        <form class="form">
+            <!-- Hidden Required Fields -->
+            <input type="hidden" name="project_name" value="Site Name">
+            <input type="hidden" name="from_email" value="mysite@mysite.site">
+            <input type="hidden" name="to_email" value="alx.pedchenko@gmail.com">
+            <input type="hidden" name="form_subject" value="Form Subject">
+
+            <input type="hidden" name="submit_page" value="home">
+            <!-- END Hidden Required Fields -->
+
+            <label>
+                <input type="text" name="userFirstName" placeholder="First name">
+            </label>
+            <label>
+                <input type="text" name="userLastName" placeholder="Last name">
+            </label>
+            <label>
+                <input type="text" name="userEmail" placeholder="Email">
+            </label>
+            <button class="button">Отправить</button>
+
+            <div class="form-success">
+                <p>Спасибо! Ваша заявка успешно отправлена.</p>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-substrate"></div>
+</div>

@@ -1,0 +1,15 @@
+.to-top
+    +tr()
+    position: fixed
+    right: 0
+    bottom: 40px
+    background: $main-cl
+    border-radius: 50%
+    width: 40px
+    height: 40px
+    cursor: pointer
+    transform: translate(100%, 0)
+    &:hover
+        opacity: 0.8
+    &.show
+        transform: translate(0, 0)

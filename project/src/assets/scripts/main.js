@@ -16,16 +16,48 @@ const mainWrapper = document.querySelector('.main-wrapper');
 const mainContent = document.querySelector('.main-content');
 
 $(document).ready(function () {
-    log('document ready');
+    // log('DOM ready');
 
     // add top scroll line in top window
     $('body').append('<div class="scroll-line"></div>');
 
     // add button to top
-    $('body').append('<div class="top"></div>');
-    $('.top').click(function () {
+    $('body').append('<div class="to-top"></div>');
+    $('.to-top').click(function () {
         $('html, body').stop().animate({ scrollTop: 0 }, 'slow', 'swing');
     });
+
+
+    // < modal
+    $('.modal-close').on('click', function () {
+        $(this).parent().parent().fadeOut();
+    });
+    $('.modal-substrate').on('click', function () {
+        $(this).parent().fadeOut();
+    });
+    $('.button-modal').on('click', function (e) {
+        e.preventDefault();
+        $('.modal.modal-form').fadeIn();
+    });
+    // modal />
+
+    // < E-mail Ajax Send
+    $("form.form").submit(function () { //Change
+        var th = $(this);
+        $.ajax({
+            type: "POST",
+            url: "/assets/mail.php", //Change
+            data: th.serialize()
+        }).done(function () {
+            th.addClass('sended');
+            setTimeout(function () {
+                th.removeClass('sended');
+                th.trigger("reset");
+            }, 3000);
+        });
+        return false;
+    });
+    // E-mail Ajax Send />
 
     // bind scroll to anchor links (<a href="#section-id">go to section with animation</a>)
     // $(document).on("click", "a[href^='#']", function (e) {
@@ -83,6 +115,7 @@ $(document).ready(function () {
 $(window)
     .on('load', function () {
         // ready when all img is load
+        $('.loader').fadeOut();
 
         // always last
         loadAndResize();
@@ -103,9 +136,9 @@ $(window)
 
         // < show button to top
         if ($(this).scrollTop() > $(window).height()) {
-            $('.top').addClass("show");
+            $('.to-top').addClass("show");
         } else {
-            $('.top').removeClass("show");
+            $('.to-top').removeClass("show");
         };
         // show button to top />
     });
@@ -125,19 +158,40 @@ window.addEventListener('scroll', function () {
     // scroll direction
     let st = this.scrollY;
     if (st > lastScrollTop) {
-        log('scroll down');
-        // enter code here
+        // scroll down
 
     } else if (st == lastScrollTop) {
         //do nothing
         //In IE this is an important condition because there seems to be some instances where the last scrollTop is equal to the new one
     } else {
-        log('scroll up');
-        // enter code here
+        // scroll up
 
     }
     lastScrollTop = st;
 });
+
+
+// < parallax function
+// window.onscroll = function () {
+//     let scrolling = this.scrollY;
+//     parallax('section', scrolling);
+// }
+
+// function parallax(section, OffsetScroll) {
+//     let OffsetSection = ($('.' + section + '').offset().top - 200 - OffsetScroll) * -1;
+//     $('.' + section + ' .decor-item').each(function () {
+//         let divider = ($(this).attr('data-speed'));
+
+//         if ((OffsetSection > 0) && (OffsetSection < $('.' + section + '').outerHeight() + 200)) {
+//             $(this).css({
+//                 'transform': 'translateY(' + OffsetSection / divider + '%)' +
+//                     ' rotate(' + OffsetSection / (divider * 10) + 'deg)'
+//             });
+//         }
+//     });
+// }
+
+// parallax function / >
 
 // < *** vanilla js ***
 
