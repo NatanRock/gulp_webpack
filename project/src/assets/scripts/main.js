@@ -7,7 +7,7 @@ import $ from 'jquery';
 
 // < *** modules ***
 // import module from './modules/module.js';
-import log from './modules/log.js';
+// import log from './modules/log.js';
 // *** modules *** />
 
 const header = document.querySelector('.header');
@@ -29,6 +29,7 @@ $(document).ready(function () {
 
 
     // < modal
+
     $('.modal-close').on('click', function () {
         $(this).parent().parent().fadeOut();
     });
@@ -39,24 +40,29 @@ $(document).ready(function () {
         e.preventDefault();
         $('.modal.modal-form').fadeIn();
     });
+
     // modal />
 
+
+
     // < E-mail Ajax Send
-    $("form.form").submit(function () { //Change
-        var th = $(this);
-        $.ajax({
-            type: "POST",
-            url: "/assets/mail.php", //Change
-            data: th.serialize()
-        }).done(function () {
-            th.addClass('sended');
-            setTimeout(function () {
-                th.removeClass('sended');
-                th.trigger("reset");
-            }, 3000);
-        });
-        return false;
-    });
+
+    // $("form.form").submit(function () { //Change
+    //     var th = $(this);
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/assets/mail.php", //Change
+    //         data: th.serialize()
+    //     }).done(function () {
+    //         th.addClass('sended');
+    //         setTimeout(function () {
+    //             th.removeClass('sended');
+    //             th.trigger("reset");
+    //         }, 3000);
+    //     });
+    //     return false;
+    // });
+
     // E-mail Ajax Send />
 
     // bind scroll to anchor links (<a href="#section-id">go to section with animation</a>)
@@ -115,15 +121,10 @@ $(document).ready(function () {
 $(window)
     .on('load', function () {
         // ready when all img is load
-        $('.loader').fadeOut();
 
-        // always last
-        loadAndResize();
+        // $('.loader').fadeOut();
     })
     .on('resize', function () {
-
-        // always last
-        loadAndResize();
     })
     .on('scroll', function () {
         // < scroll-line
@@ -142,12 +143,6 @@ $(window)
         };
         // show button to top />
     });
-
-let loadAndResize = () => {
-    mainContent.style.cssText =
-        `padding-top: ${header.offsetHeight}px;
-        min-height: calc(100vh - ${footer.offsetHeight}px);`;
-}
 
 let lastScrollTop = 0;
 
@@ -192,6 +187,29 @@ window.addEventListener('scroll', function () {
 // }
 
 // parallax function / >
+
+
+
+// <loadAndResize
+
+// $(window)
+//     .on('load', function () {
+//         // always last
+//         loadAndResize();
+//     })
+//     .on('resize', function () {
+//         // always last
+//         loadAndResize();
+//     });
+
+// let loadAndResize = () => {
+//     mainContent.style.cssText =
+//         `padding-top: ${header.offsetHeight}px;
+//         min-height: calc(100vh - ${footer.offsetHeight}px);`;
+// }
+
+// loadAndResize/>
+
 
 // < *** vanilla js ***
 
