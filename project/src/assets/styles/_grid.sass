@@ -1,0 +1,80 @@
+.container
+    position: relative
+    max-width: #{$container-width}px
+    width: 100%
+    padding: 0 $indent/2
+    margin: 0 auto
+
+.row
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    position: relative
+    margin: 0 $indent/-2
+
+.col
+  padding-left: $indent / 2
+  padding-right: $indent / 2
+
+//default grid sizes
+@for $i from 1 through $columns
+    .col-#{$i}
+        width: $i / $columns * 100%
+
+//media query grid sizes
+@each $key, $val in $breakpoints
+    @media (max-width: #{$val}px)
+        @for $i from 1 through $columns
+            .col-#{$key}-#{$i}
+                width: $i / $columns * 100%
+
+//default flow position
+.flex-column
+    flex-direction: column
+.flex-row
+    flex-direction: row
+
+.justify-start
+    justify-content: flex-start
+.justify-end
+    justify-content: flex-end
+.justify-center
+    justify-content: center
+.justify-between
+    justify-content: space-between
+.justify-around
+    justify-content: space-around
+
+.align-start
+    align-items: flex-start
+.align-end
+    align-items: flex-end
+.align-center
+    align-items: center
+
+//media query flow position
+@each $key, $val in $breakpoints
+    @media (max-width: #{$val}px)
+        .flex-#{$key}-column
+            flex-direction: column
+        .flex-#{$key}-row
+            flex-direction: row
+        .justify-#{$key}-start
+            justify-content: flex-start
+        .justify-#{$key}-end
+            justify-content: flex-end
+        .justify-#{$key}-center
+            justify-content: center
+        .justify-#{$key}-between
+            justify-content: space-between
+        .justify-#{$key}-around
+            justify-content: space-around
+
+        .align-#{$key}-start
+            align-items: flex-start
+        .align-#{$key}-end
+            align-items: flex-end
+        .align-#{$key}-center
+            align-items: center
+
+

@@ -6,6 +6,9 @@
         font-weight: $weight
         font-style: $style
 
+@mixin tr($time: 0.3s, $property: all)
+    transition: $time $property
+
 $layout-width: 1920
 @function get-vw($px)
     $vw-context: ($layout-width*.01) * 1px
@@ -21,41 +24,33 @@ $layout-width: 1920
     $vw-context: ($layout-width*.01) * 1px
     @return unquote(('calc('+$percent * 1%+ ' + ' + ($px/$vw-context) * 1vw +')'))
 
-$w-min: 1601px
-$w-max: 2560px
-@mixin adaptive($media)
-    @if $media == float
-        // @media (min-width: $w-min) and (max-width: $w-max)
-        @media (min-width: $w-min)
+$w-min: 1601
+$w-max: 2560
+@mixin adaptive($size)
+    // @else if $size == float
+    //     @media (min-width: $w-min) and (max-width: $w-max)
+    //     @media (min-width: #{$w-min}px)
+    //         @content
+    @if map-has-key($breakpoints, $size)
+        @media (max-width: #{map-get($breakpoints, $size)}px)
             @content
     @else
-        @media (max-width: $media * 1px)
+        @media (max-width: #{$size}px)
             @content
 
 @mixin placeholder
-    &::-webkit-input-placeholder
-        @content
-    &:-moz-placeholder
-        @content
-    &::-moz-placeholder
-        @content
-    &:-ms-input-placeholder
-        @content
+    &[placeholder]
+        text-overflow: ellipsis
+    @each $placeholder in $placeholders
+        &:#{$placeholder}-placeholder
+            text-overflow: ellipsis
+            font-weight: 400
+            opacity: 1
+            transition: color 0.3s ease
+            @content
+        &:focus:#{$placeholder}-placeholder
+            color: transparent
 
-@mixin hover-link($bg-color, $height, $speed)
-    &:before
-        content: ''
-        position: absolute
-        bottom: 0
-        right: 0
-        width: 0
-        height: $height
-        background: $bg-color
-        transition: $speed
-    &:hover
-        &:before
-            left: 0
-            width: 100%
-
-@mixin tr($time: 0.3s, $property: all)
-    transition: $time $property
+@mixin retina
+    @media (min-resolution: 144dpi), (min-resolution: 1.5dppx)
+        @content

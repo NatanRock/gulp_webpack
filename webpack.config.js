@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const config = {
     // mode: 'development',
     // mode: 'production',
-    // mode: 'none',
+    mode: 'none',
     entry: {
         main: './project/src/assets/scripts/main.js'
     },
