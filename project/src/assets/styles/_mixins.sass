@@ -24,13 +24,14 @@ $layout-width: 1920
     $vw-context: ($layout-width*.01) * 1px
     @return unquote(('calc('+$percent * 1%+ ' + ' + ($px/$vw-context) * 1vw +')'))
 
-$w-min: 1601
-$w-max: 2560
-@mixin adaptive($size)
-    // @else if $size == float
-    //     @media (min-width: $w-min) and (max-width: $w-max)
-    //     @media (min-width: #{$w-min}px)
-    //         @content
+// $float-min: 1601
+// $float-max: 2560
+// @else if $size == float
+//     @media (min-width: $float-min) and (max-width: $float-max)
+//         @content
+
+$breakpoints: (xs: 576, sm: 768, md: 992, lg: 1200,)
+@mixin media($size)
     @if map-has-key($breakpoints, $size)
         @media (max-width: #{map-get($breakpoints, $size)}px)
             @content
@@ -38,6 +39,7 @@ $w-max: 2560
         @media (max-width: #{$size}px)
             @content
 
+$placeholders: ':-webkit-input' ':-moz' '-moz' '-ms-input'
 @mixin placeholder
     &[placeholder]
         text-overflow: ellipsis
