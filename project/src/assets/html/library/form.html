@@ -1,25 +1,35 @@
-<form class="form">
-    <!-- Hidden Required Fields -->
-    <input type="hidden" name="project_name" value="Site Name">
-    <input type="hidden" name="from_email" value="mysite@mysite.site">
-    <input type="hidden" name="to_email" value="alx.pedchenko@gmail.com">
-    <input type="hidden" name="form_subject" value="Form Subject">
+<section class="section">
+    <div class="container">
+        <h2 class="title">Form</h2>
 
-    <input type="hidden" name="submit_page" value="home">
-    <!-- END Hidden Required Fields -->
+        <form class="form">
+            <!-- Hidden Required Fields -->
+            <input type="hidden" name="project_name" value="Site Name">
+            <input type="hidden" name="from_email" value="mysite@mysite.site">
+            <input type="hidden" name="to_email" value="alx.pedchenko@gmail.com">
+            <input type="hidden" name="form_subject" value="Form Subject">
 
-    <label class="form-label">
-        <input class="form-control" type="text" name="userFirstName" placeholder="First name">
-    </label>
-    <label class="form-label">
-        <input class="form-control" type="text" name="userLastName" placeholder="Last name">
-    </label>
-    <label class="form-label">
-        <input class="form-control" type="text" name="userEmail" placeholder="Email">
-    </label>
-    <button class="button">Отправить</button>
+            <input type="hidden" name="submit_page" value="home">
+            <!-- END Hidden Required Fields -->
 
-    <div class="form-success">
-        <p>Спасибо! Ваша заявка успешно отправлена.</p>
+            <label class="form-label">
+                <input class="form-control" type="text" name="userFirstName" placeholder="First name">
+            </label>
+            <label class="form-label">
+                <input class="form-control" type="text" name="userLastName" placeholder="Last name">
+            </label>
+            <label class="form-label">
+                <input class="form-control" type="text" name="userEmail" placeholder="Email">
+            </label>
+            <button class="button">Отправить</button>
+
+            <div class="form-success">
+                <p>
+                    Спасибо!
+                    <br> Ваша заявка успешно отправлена.
+                </p>
+            </div>
+        </form>
+
     </div>
-</form>
+</section>

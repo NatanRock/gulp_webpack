@@ -3,6 +3,8 @@
 
 // *** import modules example ***
 // import log from './modules/log.js';
+import './modules/accordion';
+import './modules/ajaxSendForm';
 
 const header = document.querySelector('.header');
 const footer = document.querySelector('.footer');
@@ -12,28 +14,10 @@ const mainContent = document.querySelector('.main-content');
 document.addEventListener('DOMContentLoaded', function () {
     // console.log('document ready');
 
-document.querySelectorAll('table').forEach(function (table) {
-
-  table.querySelectorAll('th').forEach(function (el, i) {
-    el.setAttribute('tabindex', i);
-  });
-
-  table.querySelectorAll('tbody tr').forEach(function (row) {
-    row.querySelectorAll('td').forEach(function (el, i) {
-      let tableCell = el;
-      let tableCellTitle = tableCell.closest('table').querySelector('th[tabindex="'+i+'"]').innerHTML;
-    
-      tableCell.setAttribute('data-title', tableCellTitle);
-    });
-  });
-
-});
-
 });
 
 window.onload = function () {
     // console.log('window loaded');
-
 
     document.querySelector('.loader').classList.add('fadeOut');
     loadAndResize();

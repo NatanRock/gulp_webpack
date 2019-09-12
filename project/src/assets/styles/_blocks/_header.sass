@@ -8,6 +8,10 @@
     z-index: 99
     padding: 20px 0
 
+    .container
+        align-items: center
+        justify-content: space-between
+
 .logo
     display: flex
 
@@ -18,13 +22,16 @@
     display: flex
     li
         margin-right: 30px
+        font-weight: 700
+        text-transform: uppercase
         &:last-child
             margin-right: 0
         &.active
             a
                 border-bottom-color: $main-cl
     a
+        +tr
         text-decoration: none
-        border-bottom: 1px solid transparent
+        border-bottom: 2px solid transparent
         &:hover
             border-bottom-color: $main-cl

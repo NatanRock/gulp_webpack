@@ -1,13 +1,27 @@
 // accordion
-document.querySelectorAll('.accordion-item').forEach(function (elem, i) {
-    // add attr data-index
-    // elem.setAttribute('data-index', i);
+document.querySelectorAll('.accordion').forEach(function (accordion) {
+    accordion.querySelectorAll('.accordion-item').forEach(function (item, i) {
+        // set first item active class for default open
+        if (i == 0) {
+            item.classList.add('active');
+        }
 
-    // add first child class active
-    elem.parentNode.firstElementChild.classList.add('active');
+        // if need tabindex attr
+        // item.setAttribute('tabindex', i);
 
-    elem.addEventListener('click', function () {
-        elem.parentNode.querySelector('.accordion-item.active').classList.remove('active');
-        elem.classList.add('active');
+        let itemTitle = item.querySelector('.accordion-title');
+        let parent = item.closest('.accordion')
+
+        itemTitle.addEventListener('click', function () {
+            if (itemTitle.closest('.accordion-item').classList.contains('active')) {
+                item.classList.remove('active');
+            } else {
+                // for closed non target items
+                if (parent.querySelector('.accordion-item.active')) {
+                    parent.querySelector('.accordion-item.active').classList.remove('active');
+                }
+                item.classList.add('active');
+            }
+        });
     });
 });

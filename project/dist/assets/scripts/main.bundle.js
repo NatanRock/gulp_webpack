@@ -86,30 +86,25 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_accordion__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _modules_ajaxSendForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _modules_ajaxSendForm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_ajaxSendForm__WEBPACK_IMPORTED_MODULE_1__);
 // *** import packages example ***
 // import TweenMax from "gsap/TweenMax";
 // *** import modules example ***
 // import log from './modules/log.js';
+
+
 var header = document.querySelector('.header');
 var footer = document.querySelector('.footer');
 var mainWrapper = document.querySelector('.main-wrapper');
 var mainContent = document.querySelector('.main-content');
-document.addEventListener('DOMContentLoaded', function () {
-  // console.log('document ready');
-  document.querySelectorAll('table').forEach(function (table) {
-    table.querySelectorAll('th').forEach(function (el, i) {
-      el.setAttribute('tabindex', i);
-    });
-    table.querySelectorAll('tbody tr').forEach(function (row) {
-      row.querySelectorAll('td').forEach(function (el, i) {
-        var tableCell = el;
-        var tableCellTitle = tableCell.closest('table').querySelector('th[tabindex="' + i + '"]').innerHTML;
-        tableCell.setAttribute('data-title', tableCellTitle);
-      });
-    });
-  });
+document.addEventListener('DOMContentLoaded', function () {// console.log('document ready');
 });
 
 window.onload = function () {
@@ -168,6 +163,108 @@ window.onbeforeunload = function () {
 };
 */
 // *** vanilla js *** />
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+// accordion
+document.querySelectorAll('.accordion').forEach(function (accordion) {
+  accordion.querySelectorAll('.accordion-item').forEach(function (item, i) {
+    // set first item active class for default open
+    if (i == 0) {
+      item.classList.add('active');
+    } // if need tabindex attr
+    // item.setAttribute('tabindex', i);
+
+
+    var itemTitle = item.querySelector('.accordion-title');
+    var parent = item.closest('.accordion');
+    itemTitle.addEventListener('click', function () {
+      if (itemTitle.closest('.accordion-item').classList.contains('active')) {
+        item.classList.remove('active');
+      } else {
+        // for closed non target items
+        if (parent.querySelector('.accordion-item.active')) {
+          parent.querySelector('.accordion-item.active').classList.remove('active');
+        }
+
+        item.classList.add('active');
+      }
+    });
+  });
+});
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+// ajax send form
+document.querySelectorAll('.form').forEach(function (elem, i) {
+  elem.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = new FormData(this),
+        xhr = new XMLHttpRequest(),
+        th = this;
+
+    if (validForm(th)) {
+      xhr.addEventListener('load', function () {
+        console.log('form send!');
+        th.classList.add('sended');
+        setTimeout(function () {
+          th.classList.remove('sended');
+          th.reset();
+        }, 3000);
+      });
+      xhr.open('POST', 'php/mail.php', true); // php/mail.php (path to script.php)
+
+      xhr.send(data);
+    }
+  });
+});
+
+function validForm(elem) {
+  var inputs = elem.querySelectorAll('input[data-required]'),
+      validForm = true;
+  inputs.forEach(function (elem, i) {
+    if (elem.value == '') {
+      elem.parentNode.classList.add('error');
+      validForm = false;
+    } else {
+      elem.parentNode.classList.remove('error');
+    }
+  });
+  return validForm;
+}
+/* html template
+
+<form class="form form-call-back">
+    <input type="hidden" name="project_name" value="Site Name">
+    <input type="hidden" name="from_email" value="mysite@mysite.site">
+    <input type="hidden" name="to_email" value="alx.pedchenko@gmail.com">
+    <input type="hidden" name="form_subject" value="Form Subject">
+    <input type="hidden" name="submit-page" value="home">
+
+    <label data-error-message="Пожалуйста, введите ваше Имя">
+        <input type="text" name="name" placeholder="* ваше Имя" data-required>
+    </label>
+
+    <label data-error-message="Пожалуйста, введите ваш Телефон">
+        <input type="tel" name="phone" placeholder="* ваш Телефон" data-required>
+    </label>
+
+    <label>
+        <input type="email" name="email" placeholder="ваш E-mail">
+    </label>
+
+    <button class="button button-fill" type="submit">Отправить</button>
+
+    <div class="form-success">
+        <p>Спасибо! <br> Форма успешно отправлена.</p>
+    </div>
+</form>
+
+*/
 
 /***/ })
 /******/ ]);
