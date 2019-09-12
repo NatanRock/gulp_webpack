@@ -16,7 +16,7 @@ document.querySelectorAll('.form').forEach(function (elem, i) {
                     th.reset();
                 }, 3000);
             });
-            xhr.open('POST', 'php/mail.php', true); // php/mail.php (path to script.php)
+            xhr.open('POST', 'assets/mail.php', true); // php/mail.php (path to script.php)
             xhr.send(data);
         }
     });
@@ -27,8 +27,12 @@ function validForm(elem) {
         validForm = true;
 
     inputs.forEach(function (elem, i) {
-        if (elem.value == '') {
+        if (elem.value.length < 3) {
             elem.parentNode.classList.add('error');
+
+            setTimeout(() => {
+                elem.parentNode.classList.remove('error');
+            }, 3000)
 
             validForm = false;
         } else {

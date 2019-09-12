@@ -4,12 +4,42 @@
     right: 0
     bottom: 40px
     background: $main-cl
-    border-radius: 50%
     width: 40px
     height: 40px
     cursor: pointer
     transform: translate(100%, 0)
+    font-size: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    overflow: hidden
     &:hover
-        opacity: 0.8
+        &:before
+            animation: toTop 0.5s ease
+    &:before
+        content: ''
+        display: block
+        position: absolute
+        top: 50%
+        left: 50%
+        width: 30%
+        height: 30%
+        border-top: 2px solid #ffffff
+        border-left: 2px solid #ffffff
+        transform: translate(-50%, -25%) rotate(45deg)
     &.show
-        transform: translate(0, 0)
+        transform: translate(-50%, 0)
+
+@keyframes toTop
+    0%
+        transform: translate(-50%, -25%) rotate(45deg)
+    40%
+        transform: translate(-50%, -300%) rotate(45deg)
+    50%
+        transform: translate(300%, -300%) rotate(45deg)
+    55%
+        transform: translate(300%, 300%) rotate(45deg)
+    60%
+        transform: translate(-50%, 300%) rotate(45deg)
+    100%
+        transform: translate(-50%, -25%) rotate(45deg)

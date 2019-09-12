@@ -12,14 +12,14 @@
             <input type="hidden" name="submit_page" value="home">
             <!-- END Hidden Required Fields -->
 
-            <label class="form-label">
-                <input class="form-control" type="text" name="userFirstName" placeholder="First name">
+            <label class="form-label" data-error="Пожалуйста, введите Ваше имя">
+                <input class="form-control" type="text" name="userName" placeholder="Ваше имя *" data-required>
+            </label>
+            <label class="form-label" data-error="Пожалуйста, введите Ваш телефон">
+                <input class="form-control" type="text" name="userPhone" placeholder="Ваш телефон *" data-required>
             </label>
             <label class="form-label">
-                <input class="form-control" type="text" name="userLastName" placeholder="Last name">
-            </label>
-            <label class="form-label">
-                <input class="form-control" type="text" name="userEmail" placeholder="Email">
+                <input class="form-control" type="text" name="userEmail" placeholder="Ваш E-mail">
             </label>
             <button class="button">Отправить</button>
 
@@ -33,3 +33,11 @@
 
     </div>
 </section>
+
+<!--
+validation
+
+<label data-error-message="Пожалуйста, введите ваше Имя">
+    <input type="text" name="name" placeholder="* ваше Имя" data-required>
+</label>
+-->

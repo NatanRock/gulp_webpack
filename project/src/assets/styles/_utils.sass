@@ -13,6 +13,15 @@
     height: auto
     display: block
 
+.img-fit
+    width: 100%
+    height: auto
+    display: block
+    @supports (object-fit: cover)
+        height: 100%
+        object-fit: cover
+        // object-position: top center
+
 .fadeOut
     pointer-events: none
     visibility: hidden
@@ -22,6 +31,9 @@
     pointer-events: all
     visibility: visible
     opacity: 1
+
+.hide
+    display: none
 
 .hidden
     display: none
@@ -46,43 +58,34 @@
     cursor: not-allowed
     pointer-events: none
 
-.fit-image
-    width: 100%
-    height: auto
-    display: block
-    @supports (object-fit: cover)
-        height: 100%
-        object-fit: cover
-        // object-position: top center
-
 .list-unstyled
     padding: 0
     margin: 0
     list-style-type: none
 
-.txt-light
+.text-light
     font-weight: 300
-.txt-normal
+.text-normal
     font-weight: 400
-.txt-medium
+.text-medium
     font-weight: 500
-.txt-sbold
+.text-sbold
     font-weight: 600
-.txt-bold
+.text-bold
     font-weight: 700
 
 // text-transform
-.txt-upr
+.text-upr
     text-transform: uppercase
-.txt-lwr
+.text-lwr
     text-transform: lowercase
 
 // text-align
-.txt-center
+.text-center
     text-align: center
-.txt-left
+.text-left
     text-align: left
-.txt-right
+.text-right
     text-align: right
 
 // color
@@ -93,3 +96,10 @@
 
 .c-white
     color: #ffffff
+
+//indents
+.mb-0
+    margin-bottom: 0 !important
+
+.pb-0
+    padding-bottom: 0 !important

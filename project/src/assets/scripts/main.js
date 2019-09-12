@@ -5,28 +5,32 @@
 // import log from './modules/log.js';
 import './modules/accordion';
 import './modules/ajaxSendForm';
+import './modules/toTop';
 
 const header = document.querySelector('.header');
 const footer = document.querySelector('.footer');
 const mainWrapper = document.querySelector('.main-wrapper');
 const mainContent = document.querySelector('.main-content');
 
-document.addEventListener('DOMContentLoaded', function () {
-    // console.log('document ready');
+document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-window.onload = function () {
-    // console.log('window loaded');
+window.onload = (e) => {
+    // console.log(e.currentTarget;
 
     document.querySelector('.loader').classList.add('fadeOut');
     loadAndResize();
 };
 
-window.addEventListener('resize', function () {
-    // console.log('window resize');
+window.addEventListener('resize', (e) => {
+    // console.log(e.currentTarget;
 
     loadAndResize();
+});
+
+window.addEventListener('scroll', (e) => {
+    // console.log(e.currentTarget);
 });
 
 let loadAndResize = () => {

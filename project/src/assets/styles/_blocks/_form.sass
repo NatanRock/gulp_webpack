@@ -9,6 +9,22 @@
 .form-label
     width: 100%
     margin-bottom: 20px
+    position: relative
+    &.error
+        &:before
+            content: attr(data-error)
+            position: absolute
+            bottom: 100%
+            left: 0
+            color: red
+            font-size: 12px
+            text-transform: uppercase
+            font-weight: 700
+            opacity: 0
+            pointer-events: none
+            visibility: hidden
+            animation: errorMsg 3s linear
+
 
 .form-control
     width: 100%
@@ -17,8 +33,6 @@
     font-weight: 700
     +placeholder
         font-weight: 700
-        text-transform: uppercase
-        font-size: 14px
 
 .form-success
     +tr
@@ -45,3 +59,30 @@
     opacity: 1
     visibility: visible
     pointer-events: all
+
+
+@keyframes errorMsg
+    10%
+        opacity: 0
+        visibility: hidden
+    15%
+        opacity: 1
+        visibility: visible
+    20%
+        opacity: 0
+        visibility: hidden
+    25%
+        opacity: 1
+        visibility: visible
+    30%
+        opacity: 0
+        visibility: hidden
+    35%
+        opacity: 1
+        visibility: visible
+    90%
+        opacity: 1
+        visibility: visible
+    100%
+        opacity: 0
+        visibility: hidden

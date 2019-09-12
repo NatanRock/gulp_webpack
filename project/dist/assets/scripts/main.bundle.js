@@ -94,28 +94,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_modules_accordion__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _modules_ajaxSendForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _modules_ajaxSendForm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_ajaxSendForm__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_toTop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _modules_toTop__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_toTop__WEBPACK_IMPORTED_MODULE_2__);
 // *** import packages example ***
 // import TweenMax from "gsap/TweenMax";
 // *** import modules example ***
 // import log from './modules/log.js';
 
 
+
 var header = document.querySelector('.header');
 var footer = document.querySelector('.footer');
 var mainWrapper = document.querySelector('.main-wrapper');
 var mainContent = document.querySelector('.main-content');
-document.addEventListener('DOMContentLoaded', function () {// console.log('document ready');
-});
+document.addEventListener('DOMContentLoaded', function () {});
 
-window.onload = function () {
-  // console.log('window loaded');
+window.onload = function (e) {
+  // console.log(e.currentTarget;
   document.querySelector('.loader').classList.add('fadeOut');
   loadAndResize();
 };
 
-window.addEventListener('resize', function () {
-  // console.log('window resize');
+window.addEventListener('resize', function (e) {
+  // console.log(e.currentTarget;
   loadAndResize();
+});
+window.addEventListener('scroll', function (e) {// console.log(e.currentTarget);
 });
 
 var loadAndResize = function loadAndResize() {
@@ -216,7 +220,7 @@ document.querySelectorAll('.form').forEach(function (elem, i) {
           th.reset();
         }, 3000);
       });
-      xhr.open('POST', 'php/mail.php', true); // php/mail.php (path to script.php)
+      xhr.open('POST', 'assets/mail.php', true); // php/mail.php (path to script.php)
 
       xhr.send(data);
     }
@@ -227,8 +231,11 @@ function validForm(elem) {
   var inputs = elem.querySelectorAll('input[data-required]'),
       validForm = true;
   inputs.forEach(function (elem, i) {
-    if (elem.value == '') {
+    if (elem.value.length < 3) {
       elem.parentNode.classList.add('error');
+      setTimeout(function () {
+        elem.parentNode.classList.remove('error');
+      }, 3000);
       validForm = false;
     } else {
       elem.parentNode.classList.remove('error');
@@ -265,6 +272,30 @@ function validForm(elem) {
 </form>
 
 */
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+document.querySelector('body').insertAdjacentHTML('beforeend', '<button class="to-top">to top</button>');
+var topButton = document.querySelector('.to-top');
+topButton.addEventListener('click', function () {
+  window.scrollTo({
+    'behavior': 'smooth',
+    'left': 0,
+    'top': 0
+  });
+});
+window.addEventListener('scroll', function (e) {
+  var windowHeight = e.currentTarget.innerHeight;
+  var offsetTop = e.currentTarget.scrollY;
+
+  if (offsetTop > windowHeight) {
+    topButton.classList.add('show');
+  } else {
+    topButton.classList.remove('show');
+  }
+});
 
 /***/ })
 /******/ ]);

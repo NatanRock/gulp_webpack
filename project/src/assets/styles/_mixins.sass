@@ -30,7 +30,6 @@ $layout-width: 1920
 //     @media (min-width: $float-min) and (max-width: $float-max)
 //         @content
 
-$breakpoints: (xs: 576, sm: 768, md: 992, lg: 1200,)
 @mixin media($size)
     @if map-has-key($breakpoints, $size)
         @media (max-width: #{map-get($breakpoints, $size)}px)

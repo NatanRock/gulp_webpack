@@ -9,7 +9,7 @@ document.querySelectorAll('a[data-scroll-item]').forEach(function (elem) {
         var scrollNumb = this.getAttribute('data-scroll-item');
 
         scrollIt(document.querySelector('section[data-scroll-section="' + scrollNumb + '"]'));
-    })
+    });
 });
 
 function scrollIt(element) {
