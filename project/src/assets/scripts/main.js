@@ -6,6 +6,7 @@
 import './modules/accordion';
 import './modules/ajaxSendForm';
 import './modules/toTop';
+import tab from './modules/tab';
 
 const header = document.querySelector('.header');
 const footer = document.querySelector('.footer');
@@ -18,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.onload = (e) => {
     // console.log(e.currentTarget;
+
+    tab('.tab-init');
 
     document.querySelector('.loader').classList.add('fadeOut');
     loadAndResize();

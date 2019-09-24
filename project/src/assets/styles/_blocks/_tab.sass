@@ -1,0 +1,25 @@
+.tab
+
+.tab-controls
+    position: relative
+    margin-bottom: 40px
+
+.tab-control
+    cursor: pointer
+    &:not(:last-child)
+        margin-right: 20px
+
+.tab-trigger
+    +tr
+    position: absolute
+    display: block
+    height: 2px
+    background: $main-cl
+
+
+.tab-container
+
+.tab-item
+    display: none
+    &.active
+        display: block

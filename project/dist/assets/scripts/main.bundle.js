@@ -96,10 +96,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_ajaxSendForm__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_ajaxSendForm__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _modules_toTop__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
 /* harmony import */ var _modules_toTop__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_toTop__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_tab__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
 // *** import packages example ***
 // import TweenMax from "gsap/TweenMax";
 // *** import modules example ***
 // import log from './modules/log.js';
+
 
 
 
@@ -111,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {});
 
 window.onload = function (e) {
   // console.log(e.currentTarget;
+  Object(_modules_tab__WEBPACK_IMPORTED_MODULE_3__["default"])('.tab-init');
   document.querySelector('.loader').classList.add('fadeOut');
   loadAndResize();
 };
@@ -296,6 +299,60 @@ window.addEventListener('scroll', function (e) {
     topButton.classList.remove('show');
   }
 });
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var tab = function tab(container) {
+  var tab = document.querySelector(container);
+  tab.querySelector('.tab-controls').insertAdjacentHTML('beforeend', '<span class="tab-trigger"></span>');
+  var tabTrigger = tab.querySelector('.tab-trigger');
+  var tabControls = tab.querySelectorAll('.tab-control');
+  var tabItems = tab.querySelectorAll('.tab-item');
+  tabControls.forEach(function (control, index) {
+    //set tabindex
+    control.setAttribute('tabindex', index); //set active class first item
+
+    if (index == 0) {
+      control.classList.add('active');
+      tabTrigger.style.cssText = "width: ".concat(control.offsetWidth, "px;");
+    }
+
+    control.addEventListener('click', function (event) {
+      var elem = event.currentTarget;
+      tabTrigger.style.cssText = "\n          left: ".concat(elem.offsetLeft, "px;\n          width: ").concat(elem.offsetWidth, "px;\n        ");
+      tab.querySelector('.tab-control.active').classList.remove('active');
+      tab.querySelector('.tab-item.active').classList.remove('active');
+      elem.classList.add('active');
+      var activeTabItem = tab.querySelector(".tab-item[tabindex=\"".concat(elem.getAttribute('tabindex'), "\"]"));
+      activeTabItem.classList.add('active');
+      activeTabItem.style.opacity = 0;
+      var opacity = 0;
+      var timer = setInterval(function () {
+        if (opacity >= 0.95) {
+          clearInterval(timer);
+        }
+
+        opacity += 0.05;
+        activeTabItem.style.opacity = opacity;
+      }, 35);
+      activeTabItem.style.cssText = "opacity: 1";
+    });
+  });
+  tabItems.forEach(function (item, index) {
+    //set tabindex
+    item.setAttribute('tabindex', index); //set active class first item
+
+    if (index == 0) {
+      item.classList.add('active');
+    }
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (tab);
 
 /***/ })
 /******/ ]);
